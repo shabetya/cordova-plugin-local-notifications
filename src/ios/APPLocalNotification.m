@@ -167,7 +167,7 @@
 
         for (UILocalNotification* notification in notifications)
         {
-            NSString* id = [notification.userInfo objectForKey:@"id"];
+            NSString* id = [[notification.userInfo objectForKey:@"id"] stringValue];
 
             [scheduledIds addObject:id];
         }
@@ -224,7 +224,7 @@
                 continue;
             }
 
-            NSString* id = [notification.userInfo objectForKey:@"id"];
+            NSString* id = [[notification.userInfo objectForKey:@"id"] stringValue];
 
             [scheduledIds addObject:id];
         }
@@ -574,7 +574,7 @@
     {
         NSString* notId = NULL;
         if ([[notification.userInfo objectForKey:@"id"] isKindOfClass:[NSString class]] ) {
-            notId = [notification.userInfo objectForKey:@"id"];
+            notId = [[notification.userInfo objectForKey:@"id"] stringValue];
         } else {
             notId = [[notification.userInfo objectForKey:@"id"] stringValue];
         }
